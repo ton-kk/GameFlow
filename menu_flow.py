@@ -24,9 +24,11 @@ def main():
                 menu_num = int(menu_num)
             except:
                 print("please input 1, 2 or 3.")
+                print("----------------")
                 continue
             if menu_num not in [1, 2, 3]:
                 print("you input " + str(menu_num) + ". please input 1,2 or 3.")
+                print("----------------")
             else:
                 break
 
