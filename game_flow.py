@@ -8,12 +8,35 @@ def pre_event():
     print("----------------")
 
 
+def player_init():
+    return {"name": "JohnDoe", "health": 100, "will": 3, "attension": 8,
+            "talking": 12, "strength": 7, "luck": 4 }
+
+
+def search_command(status):
+    status["health"] = status["health"] - 20
+
+
+def break_command(status):
+    print("i have a break. sometimes need a break everyone.")
+    status["health"] = status["health"] + 40
+    if status["health"] > 100:
+        status["health"] == 100
+
+
+def setting(status):
+    print(status)
+
 
 def main():
     print("<< this is game flow demo. >>")
     print("----------------")
     pre_event()
 
+    player = player_init()
+    menu_dict = {1:"search", 2: "break", 3:"setting"}
+
+    # main loop
     limit = 10
     while True:
         while True:
@@ -33,17 +56,19 @@ def main():
         print("you select [[ " + str(menu_num) + " ]] " + menu_dict[menu_num] + ".")
         print("----------------")
         if menu_num == 1:
-            search_command()
+            search_command(player)
         elif menu_num == 2:
-            break_command()
+            break_command(player)
         else:
-            setting()
+            setting(player)
 
         # check limit
-        if limit == 0:
-            limit = limit -1
+        if limit != 0:
+            limit = limit - 1
         else:
             break
+
+    print("this is game end.")
 
 
 
