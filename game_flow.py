@@ -1,6 +1,3 @@
-
-
-
 def pre_event():
     print("<< this is pre event section. >>")
     print("you select action fot 10 turns.")
@@ -10,18 +7,19 @@ def pre_event():
 
 def player_init():
     return {"name": "JohnDoe", "health": 100, "will": 3, "attension": 8,
-            "talking": 12, "strength": 7, "luck": 4 }
+            "talking": 12, "strength": 7, "luck": 4}
 
 
 def search_command(status):
+    print("search around here.")
+    print(" --- health decrease 20 points.")
     status["health"] = status["health"] - 20
 
 
 def break_command(status):
     print("i have a break. sometimes need a break everyone.")
-    status["health"] = status["health"] + 40
-    if status["health"] > 100:
-        status["health"] == 100
+    print(" --- health increase 40 points.")
+    status["health"] = min(status["health"] + 40, 100)
 
 
 def setting(status):
@@ -34,12 +32,14 @@ def main():
     pre_event()
 
     player = player_init()
-    menu_dict = {1:"search", 2: "break", 3:"setting"}
+    menu_dict = {1: "search", 2: "break", 3: "setting"}
 
     # main loop
     limit = 10
     while True:
         while True:
+            print("last " + str(limit) + " turn. select your action.")
+            print(player)
             menu_num = input("1. search  2. break  3.setting ... ")
             try:
                 menu_num = int(menu_num)
@@ -61,6 +61,7 @@ def main():
             break_command(player)
         else:
             setting(player)
+        print("----------------")
 
         # check limit
         if limit != 0:
@@ -69,10 +70,6 @@ def main():
             break
 
     print("this is game end.")
-
-
-
-
 
 
 if __name__ == '__main__':
