@@ -11,9 +11,11 @@ def player_init():
 
 
 def search_command(status):
-    print("search around here.")
+    print("you searched around.")
     print(" --- health decrease 20 points.")
     status["health"] = status["health"] - 20
+
+    # random event
 
 
 def break_command(status):
@@ -23,6 +25,7 @@ def break_command(status):
 
 
 def setting(status):
+    print("show your status.")
     print(status)
 
 
@@ -31,10 +34,11 @@ def main():
     print("----------------")
     pre_event()
 
+    # player character initialize
     player = player_init()
-    menu_dict = {1: "search", 2: "break", 3: "setting"}
 
     # main loop
+    menu_dict = {1: "search", 2: "break", 3: "setting"}
     limit = 10
     while True:
         while True:
