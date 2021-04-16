@@ -1,5 +1,5 @@
 def pre_event():
-    print("<< this is pre event section. >>")
+    print("<< this is opening event section. >>")
     print("you select action fot 10 turns.")
     print("character grows according to the selection result.")
     print("----------------")
