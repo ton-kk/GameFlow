@@ -1,3 +1,6 @@
+import random
+
+
 def pre_event():
     print("<< this is opening event section. >>")
     print("you select action fot 10 turns.")
@@ -12,10 +15,25 @@ def player_init():
 
 def search_command(status):
     print("you searched around.")
+    # random event
+    event_seed = random.randomint(0,99)
+
+    if event_seed < 21:
+        print("and find some scraps.")
+        print(" --- will increase 1 points.")
+        status["will"] = min(status["will"] + 1, 5)
+    elif event_seed < 51:
+        print("and find talking skill book.")
+        print(" --- talking increase 1 points.")
+        status["will"] = min(status["talking"] + 1, 30)
+    else:
+        print("and find nothing...")
+
     print(" --- health decrease 20 points.")
     status["health"] = status["health"] - 20
 
-    # random event
+
+
 
 
 def break_command(status):
