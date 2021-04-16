@@ -15,8 +15,9 @@ def player_init():
 
 def search_command(status):
     print("you searched around.")
+
     # random event
-    event_seed = random.randomint(0,99)
+    event_seed = random.randint(0, 99)
 
     if event_seed < 21:
         print("and find some scraps.")
@@ -25,15 +26,13 @@ def search_command(status):
     elif event_seed < 51:
         print("and find talking skill book.")
         print(" --- talking increase 1 points.")
-        status["will"] = min(status["talking"] + 1, 30)
+        status["talking"] = min(status["talking"] + 1, 30)
     else:
         print("and find nothing...")
 
+    # common event
     print(" --- health decrease 20 points.")
     status["health"] = status["health"] - 20
-
-
-
 
 
 def break_command(status):
@@ -54,23 +53,27 @@ def main():
 
     # player character initialize
     player = player_init()
+    print("player character has been created.")
+    print("status is ...")
+    print(player)
+    print("----------------")
 
     # main loop
     menu_dict = {1: "search", 2: "break", 3: "setting"}
-    limit = 10
+    limit = 9
     while True:
         while True:
             print("last " + str(limit) + " turn. select your action.")
-            print(player)
+
             menu_num = input("1. search  2. break  3.setting ... ")
             try:
                 menu_num = int(menu_num)
             except:
-                print("please input 1, 2 or 3.")
+                print("\'!! input error !!\' please input 1, 2 or 3.")
                 print("----------------")
                 continue
             if menu_num not in [1, 2, 3]:
-                print("you input " + str(menu_num) + ". please input 1,2 or 3.")
+                print("\'!! input error !!\' you input " + str(menu_num) + ". please input 1,2 or 3.")
                 print("----------------")
             else:
                 break
@@ -90,7 +93,7 @@ def main():
             limit = limit - 1
         else:
             break
-
+    print("turns are over.")
     print("this is game end.")
 
 
