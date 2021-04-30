@@ -3,12 +3,14 @@ menu_dict = {1: "Game Start", 2: "settings", 3: "Quit"}
 
 def settings():
     print("<< this is game setting section. >>")
+    pritn("there is no content now.")
     print("return game menu.")
     print("----------------")
 
 
 def game_main():
     print("<< this is game main section. >>")
+    pritn("there is no content now.")
     print("return game menu.")
     print("----------------")
 
