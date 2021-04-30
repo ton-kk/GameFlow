@@ -18,7 +18,7 @@ def game_main():
 def main():
     while True:
         print("<< this is menu flow demo. >>")
-        print("please input number ... ")
+        print("please input number of your action ... ")
 
         while True:
             menu_num = input("1. game start  2. settings  3. quit ... ")
@@ -29,7 +29,7 @@ def main():
                 print("----------------")
                 continue
             if menu_num not in [1, 2, 3]:
-                print("you input " + str(menu_num) + ". please input 1,2 or 3.")
+                print("you input " + str(menu_num) + ". out of lange.")
                 print("----------------")
             else:
                 break
