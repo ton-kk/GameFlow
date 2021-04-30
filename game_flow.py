@@ -1,4 +1,5 @@
 import random
+import sys
 
 
 def pre_event():
@@ -76,7 +77,7 @@ def main():
                 print("\'!! input error !!\' please input 1, 2, 3 or 4.")
                 print("----------------")
                 continue
-            if menu_num not in [1, 2, 3]:
+            if menu_num not in [1, 2, 3, 4]:
                 print("\'!! input error !!\' you input " + str(menu_num) + ". out of lange.")
                 print("----------------")
             else:
@@ -90,9 +91,11 @@ def main():
             break_command(player)
         elif menu_num == 3:
             setting(player)
-            limit = 0
         else:
             save(player)
+            print("----------------")
+            print("see you next time.")
+            sys.exit()
         print("----------------")
 
         # check limit
