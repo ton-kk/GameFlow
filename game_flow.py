@@ -46,6 +46,10 @@ def setting(status):
     print(status)
 
 
+def save(player):
+    print("data saved.")
+
+
 def main():
     print("<< this is game flow demo. >>")
     print("----------------")
@@ -59,21 +63,21 @@ def main():
     print("----------------")
 
     # main loop
-    menu_dict = {1: "search", 2: "break", 3: "setting"}
+    menu_dict = {1: "search", 2: "break", 3: "setting", 4: "save & quit"}
     limit = 9
     while True:
         while True:
             print("last " + str(limit) + " turn. select your action.")
 
-            menu_num = input("1. search  2. break  3.setting ... ")
+            menu_num = input("1. search  2. break  3.setting 4.save & quit ... ")
             try:
                 menu_num = int(menu_num)
             except:
-                print("\'!! input error !!\' please input 1, 2 or 3.")
+                print("\'!! input error !!\' please input 1, 2, 3 or 4.")
                 print("----------------")
                 continue
             if menu_num not in [1, 2, 3]:
-                print("\'!! input error !!\' you input " + str(menu_num) + ". please input 1,2 or 3.")
+                print("\'!! input error !!\' you input " + str(menu_num) + ". out of lange.")
                 print("----------------")
             else:
                 break
@@ -84,8 +88,11 @@ def main():
             search_command(player)
         elif menu_num == 2:
             break_command(player)
-        else:
+        elif menu_num == 3:
             setting(player)
+            limit = 0
+        else:
+            save(player)
         print("----------------")
 
         # check limit
