@@ -55,6 +55,7 @@ def main():
     print(mob.profile)
     another = character("john doe", 0, "other")
     print(another.profile)
+
     pass
 
 
