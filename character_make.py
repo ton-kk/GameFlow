@@ -1,6 +1,6 @@
 # character skill seeds.
 # player or main character or sub or another
-# 0 player 1 main 2 sub 3 another
+# 0 player 1 main 2 sub 3 another  reverse
 import math
 import random
 
@@ -17,33 +17,44 @@ seeds = []
 # player-type
 # power wise speed seek special
 # 0 power 1 wise 2 speed 3 seek  special
+# test 0 physical 1 features
 
 class character:
     profile = {}
-
+    priority = 0
+    ptype = {"physical": 0, "features": 0}
 
     def __init__(self, name, priority, ptype):
+        self.priority = priority
+        self.ptype[ptype] = 1
         # generate identity
         self.profile["name"] = name
-        self.profile["age"] = int(random.uniform(10, 100))
+        self.profile["age"] = int(random.uniform(10, 65))
         self.profile["sex"] = round(random.random())
         self.profile["shape"] = int(random.uniform(0, 10))
         # generate physical
         for key in ["strength", "agility", "endurance", "dexterity", "intelligence", "luck"]:
-            self.profile[key] = int(random.uniform(1, 20))
+            self.profile[key] = min(20, int(random.uniform(1, 20)
+                                            + self.priority + self.ptype["physical"]))
         # generate features
         for key in ["sight", "hearing", "insight", "concentration", "immunity"]:
-            self.profile[key] = int(random.uniform(1, 10))
+            self.profile[key] = min(10, int(random.uniform(1, 10)
+                                            + (self.priority / 2) + self.ptype["features"]))
         # generate points
         for key in ["health", "hunger", "thirst", "fatigue"]:
             self.profile[key] = 100
         # generate skills
-        print("charcter created!")
 
 
 def main():
-    player = character("a player", 0, 4)
+    player = character("a player", 3, "features")
     print(player.profile)
+    non_player = character("b player", 2, "features")
+    print(non_player.profile)
+    mob = character("b player", 1, "physical")
+    print(mob.profile)
+    another = character("john doe", 0, "other")
+    print(another.profile)
     pass
 
 
