@@ -52,6 +52,13 @@ class character:
         for key, value in array:
             self.param_update(key, value)
 
+    def param_update_flag(self, key, value):
+        self.profile[key] = value
+
+    def param_updates_flag(self, array):
+        for key, value in array:
+            self.param_update(key, value)
+
 
 def main():
     player = character("a player", 3, "features")
