@@ -19,6 +19,10 @@ seeds = []
 # 0 power 1 wise 2 speed 3 seek  special
 # test 0 physical 1 features
 
+# skills
+# physical sense, feature sense, careful, sentimental, handmade, powerful seller
+
+
 class character:
     profile = {}
     priority = 0
@@ -44,20 +48,30 @@ class character:
         for key in ["health", "hunger", "thirst", "fatigue"]:
             self.profile[key] = 100
         # generate skills
+        # init
+        self.profile["skill"] = {}
+        for key in ["sense", "feature sense", "careful", "sentimental", "handmade", "powerful seller"]:
+            self.profile["skill"][key] = 0
+        # generate
+        add_skill = random.sample(["sense", "feature sense", "careful", "sentimental", "handmade", "powerful seller"], 2)
+        for skill in add_skill:
+            self.profile["skill"][key] = 1
 
+
+    # update character profile
     def param_update_value(self, key, value):
         self.profile[key] = self.profile[key] + value
 
     def param_updates_value(self, array):
         for key, value in array:
-            self.param_update(key, value)
+            self.param_update_value(key, value)
 
     def param_update_flag(self, key, value):
         self.profile[key] = value
 
     def param_updates_flag(self, array):
         for key, value in array:
-            self.param_update(key, value)
+            self.param_update_flag(key, value)
 
 
 def main():
