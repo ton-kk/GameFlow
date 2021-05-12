@@ -45,6 +45,13 @@ class character:
             self.profile[key] = 100
         # generate skills
 
+    def param_update_value(self, key, value):
+        self.profile[key] = self.profile[key] + value
+
+    def param_updates_value(self, array):
+        for key, value in array:
+            self.param_update(key, value)
+
 
 def main():
     player = character("a player", 3, "features")
