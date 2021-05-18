@@ -53,10 +53,10 @@ class character:
         for key in ["sense", "feature sense", "careful", "sentimental", "handmade", "powerful seller"]:
             self.profile["skill"][key] = 0
         # generate
-        add_skill = random.sample(["sense", "feature sense", "careful", "sentimental", "handmade", "powerful seller"], 2)
+        add_skill = random.sample(["sense", "feature sense", "careful", "sentimental", "handmade", "powerful seller"],
+                                  2)
         for skill in add_skill:
             self.profile["skill"][key] = 1
-
 
     # update character profile
     def param_update_value(self, key, value):
@@ -79,7 +79,7 @@ def main():
     print(player.profile)
     non_player = character("b player", 2, "features")
     print(non_player.profile)
-    mob = character("b player", 1, "physical")
+    mob = character("mob mob", 1, "physical")
     print(mob.profile)
     another = character("john doe", 0, "other")
     print(another.profile)
